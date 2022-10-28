@@ -21,23 +21,23 @@ int main(int argc, char *argv[])
     unsigned char data[1024];
 
     if (inFile == NULL) {
-        printf ("%s can't be opened.\n", filename);
+        printf("%s can't be opened.\n", filename);
         return 0;
     }
  
     MD5_Init(&mdContext);
     while ((bytes = fread(data, 1, 1024, inFile)) != 0) {
-        MD5_Update (&mdContext, data, bytes);
+        MD5_Update(&mdContext, data, bytes);
     }
-    
-    MD5_Final(c,&mdContext);
+
+    MD5_Final(c, &mdContext);
     
     for (i=0; i<MD5_DIGEST_LENGTH; i++) {
         printf("%02x", c[i]);
     }
     
-    printf (" %s\n", filename);
-    fclose (inFile);
+    printf(" %s\n", filename);
+    fclose(inFile);
     
     return 0;
 }
