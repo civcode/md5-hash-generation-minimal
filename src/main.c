@@ -24,12 +24,13 @@ int main(int argc, char *argv[])
         printf ("%s can't be opened.\n", filename);
         return 0;
     }
-
-    MD5_Init (&mdContext);
+ 
+    MD5_Init(&mdContext);
     while ((bytes = fread(data, 1, 1024, inFile)) != 0) {
         MD5_Update (&mdContext, data, bytes);
     }
-    MD5_Final (c,&mdContext);
+    
+    MD5_Final(c,&mdContext);
     
     for (i=0; i<MD5_DIGEST_LENGTH; i++) {
         printf("%02x", c[i]);
