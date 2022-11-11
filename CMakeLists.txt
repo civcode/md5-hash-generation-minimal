@@ -9,4 +9,10 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME} src/main.c)
+
+# Ubuntu
 target_link_libraries(${PROJECT_NAME} OpenSSL::SSL OpenSSL::Crypto)
+
+# Raspi
+# $ sudo apt install openssl libssl-dev
+#target_link_libraries(uds-server uds aes OpenSSL::SSL -lcrypto)
